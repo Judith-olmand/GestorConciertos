@@ -1,17 +1,68 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+import org.example.Eliminar.*;
+import org.example.CrearNuevo.*;
+import org.example.Buscar.*;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int opcion;
+
+        try (Connection conn = DriverManager.getConnection(
+                DBConfig.getUrl(),
+                DBConfig.getUser(),
+                DBConfig.getPassword())){
+
+            System.out.println("Elija una opción:");
+            System.out.println("1. Añadir un artista");
+            System.out.println("2. EliminarArtista un artista");
+            System.out.println("3. Listar todos los artistas");
+            System.out.println("4. Añadir un concierto.");
+            System.out.println("5. EliminarArtista un concierto.");
+            System.out.println("6. Listar todos los conciertos.");
+            System.out.println("7. Registrar venta de entradas.");
+            System.out.println("8. Listar venta de entradas.");
+            System.out.println("0. Salir");
+            opcion = sc.nextInt();
+            sc.nextLine();
+
+            switch (opcion) {
+                case 1:
+                    NuevoArtista.nuevoArtista(conn,sc);
+                    break;
+                case 2:
+                    EliminarArtista.eliminarArtista(conn,sc);
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    NuevoConcierto.nuevoConcierto(conn,sc);
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    break;
+                case 0:
+                    System.out.println("Hasta pronto!!");
+                    break;
+                default:
+                    System.out.println("Opción no válida.");
+                    break;
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error al conectar: " + e.getMessage());
         }
     }
 }
