@@ -1,22 +1,35 @@
-package org.example.Eliminar;
+package org.example.Elimina;
 
-import org.example.Buscar.*;
+import org.example.Busquedas.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class EliminarArtista {
+public class Artista {
     public static void eliminarArtista(Connection conexion, Scanner sc) {
-        System.out.println("Introduce el id del artista que desea eliminar:");
-        int idArtista = sc.nextInt();
-        sc.nextLine();
+        boolean numeroCorrecto = false;
+        int idArtista = 0;
 
-        boolean existeIdArtista = BuscarIdArtista.idArtista(conexion, idArtista);
+        do {
+            System.out.println("Introduce el id del artista que desea eliminar:");
+            try {
+                idArtista = sc.nextInt();
+                sc.nextLine();
+                numeroCorrecto = true;
+            } catch (InputMismatchException e) {
+                System.out.println("El id del artista ha de ser numérico.");
+            }
+        }while (!numeroCorrecto);
+
+
+
+        boolean existeIdArtista = org.example.Busquedas.Artista.idArtista(conexion, idArtista);
 
         if (existeIdArtista){
-            boolean existenConciertos = BuscarConciertosArtista.conciertosIdArtista(conexion, idArtista);
+            boolean existenConciertos = ConciertosArtista.conciertosIdArtista(conexion, idArtista);
             if (existenConciertos){
                 System.out.println("Existen conciertos del artista. No se puede eliminar");
             } else {

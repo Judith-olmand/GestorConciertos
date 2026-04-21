@@ -1,11 +1,11 @@
-package org.example.Buscar;
+package org.example.Busquedas;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class BuscarNombreArtista {
+public class NombreArtista {
     public static boolean nombreArtista(Connection conexion, String nombre) {
         String consultaNombreArtista = "SELECT NOMBRE_A FROM ARTISTA WHERE NOMBRE_A LIKE ?";
 

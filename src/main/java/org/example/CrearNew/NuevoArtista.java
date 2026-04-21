@@ -1,7 +1,6 @@
-package org.example.CrearNuevo;
+package org.example.CrearNew;
 
-import org.example.ExtraerID.IDArtistaDisponible;
-import org.example.InsertarBBDD.InsertarNuevoArtista;
+import org.example.Extraer.IDArtistaDisponible;
 import org.example.Objetos.Artista;
 
 import java.sql.Connection;
@@ -19,6 +18,6 @@ public class NuevoArtista {
         int idArtista = IDArtistaDisponible.idArtistaDisponible(conexion) + 1;
 
         Artista nuevoArtista = new Artista(idArtista, nombre, genero, pais);
-        InsertarNuevoArtista.nuevoArtista(conexion, nuevoArtista);
+        org.example.InsertarBBDD.NuevoArtista.nuevoArtista(conexion, nuevoArtista);
     }
 }

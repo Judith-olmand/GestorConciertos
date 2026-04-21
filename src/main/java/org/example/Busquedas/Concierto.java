@@ -1,13 +1,13 @@
-package org.example.Buscar;
+package org.example.Busquedas;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class BuscarIdConcierto {
+public class Concierto {
     public static boolean idConcierto(Connection conexion, int idConcierto) {
-        String consultaIdConcierto = "SELECT ID_C FROM  WHERE ID_C = ?";
+        String consultaIdConcierto = "SELECT ID_C FROM CONCIERTO WHERE ID_C = ?";
 
         try (PreparedStatement ps = conexion.prepareStatement(consultaIdConcierto)){
             ps.setInt(1, idConcierto);

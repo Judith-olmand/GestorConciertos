@@ -5,15 +5,15 @@ import java.time.LocalDate;
 public class Entrada {
     private int id;
     private int idConcierto;
-    private String concierto;
+    private String artistaConcierto;
     private String comprador;
     private int cantidad;
     private LocalDate fechaCompra;
 
-    public Entrada(int id, int idConcierto, String concierto, String comprador, int cantidad, LocalDate fechaCompra) {
+    public Entrada(int id, int idConcierto, String artistaConcierto, String comprador, int cantidad, LocalDate fechaCompra) {
         this.id = id;
         this.idConcierto = idConcierto;
-        this.concierto = concierto;
+        this.artistaConcierto = artistaConcierto;
         this.comprador = comprador;
         this.cantidad = cantidad;
         this.fechaCompra = fechaCompra;
@@ -35,12 +35,12 @@ public class Entrada {
         this.idConcierto = idConcierto;
     }
 
-    public String getConcierto() {
-        return concierto;
+    public String getArtistaConcierto() {
+        return artistaConcierto;
     }
 
-    public void setConcierto(String concierto) {
-        this.concierto = concierto;
+    public void setArtistaConcierto(String concierto) {
+        this.artistaConcierto = concierto;
     }
 
     public String getComprador() {

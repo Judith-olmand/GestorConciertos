@@ -1,13 +1,13 @@
 package org.example.InsertarBBDD;
 
-import org.example.ExtraerID.IDArtista;
+import org.example.Extraer.IDArtista;
 import org.example.Objetos.Concierto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class InsertarNuevoConcierto {
+public class NuevoConcierto {
     public static void nuevoConcierto(Connection conexion, Concierto concierto) {
         int idArtista = IDArtista.idArtista(conexion, concierto.getArtista());
         String insert = "INSERT INTO concierto (id_c ,id_a, fecha, lugar, precio) " +
