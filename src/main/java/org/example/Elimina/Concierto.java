@@ -6,13 +6,26 @@ import org.example.Busquedas.BuscarEntradasConcierto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.Scanner;
+import java.util.*;
 
 public class Concierto {
     public static void eliminarConcierto(Connection conexion, Scanner sc) {
-        System.out.println("Introduce el id del concierto que desea eliminar:");
-        int idConcierto = sc.nextInt();
-        sc.nextLine();
+        int idConcierto = -1;
+        boolean numeroValido;
+
+        do {
+            numeroValido = false;
+            System.out.println("Introduce el id del concierto que desea eliminar:");
+            try {
+                idConcierto = sc.nextInt();
+                sc.nextLine();
+                numeroValido = true;
+            } catch (InputMismatchException e) {
+                System.out.println("La opción ha de ser numérica.");
+                sc.nextLine();
+            }
+        }while(!numeroValido);
+
 
         boolean existeIdConcierto = BuscarIDConcierto.idConcierto(conexion, idConcierto);
 

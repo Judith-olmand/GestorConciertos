@@ -21,6 +21,7 @@ public class Artista {
                 numeroCorrecto = true;
             } catch (InputMismatchException e) {
                 System.out.println("El id del artista ha de ser numérico.");
+                sc.nextLine();
             }
         }while (!numeroCorrecto);
 

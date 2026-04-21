@@ -80,8 +80,9 @@ public class NuevaEntrada {
                  */
                 if (cantidadEntrada <= 0){
                     System.out.println("La cantidad de entradas debe ser mayor a 0");
-                } else if (cantidadEntrada + cantidadPosibles > 10){
+                } else if (cantidadPosibles - cantidadEntrada < 0){
                     System.out.println("La cantidad de entradas máxima por comprador es de 10.");
+                    System.out.println("Puedes comprar un máximo de " + cantidadPosibles + " entradas más");
                 } else {
                     numeroCorrecto = true;
                 }
