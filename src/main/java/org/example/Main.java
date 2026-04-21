@@ -45,32 +45,41 @@ public class Main {
                         System.out.println("La opción ha de ser numérica.");
                         sc.nextLine();
                     }
+                    System.out.println();
                 } while (!opcionValida);
 
                 switch (opcion) {
                     case 1:
                         NuevoArtista.nuevoArtista(conn,sc);
+                        System.out.println();
                         break;
                     case 2:
                         Artista.eliminarArtista(conn,sc);
+                        System.out.println();
                         break;
                     case 3:
                         Artistas.listarArtistas(conn);
+                        System.out.println();
                         break;
                     case 4:
                         NuevoConcierto.nuevoConcierto(conn,sc);
+                        System.out.println();
                         break;
                     case 5:
                         Concierto.eliminarConcierto(conn,sc);
+                        System.out.println();
                         break;
                     case 6:
                         Conciertos.listarConciertos(conn);
+                        System.out.println();
                         break;
                     case 7:
                         NuevaEntrada.nuevaEntrada(conn,sc);
+                        System.out.println();
                         break;
                     case 8:
                         VentaEntradas.listarEntradas(conn);
+                        System.out.println();
                         break;
                     case 0:
                         System.out.println("Hasta pronto!!");

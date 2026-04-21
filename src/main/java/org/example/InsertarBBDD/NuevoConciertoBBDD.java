@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class NuevoConcierto {
+public class NuevoConciertoBBDD {
     public static void nuevoConcierto(Connection conexion, Concierto concierto) {
         int idArtista = IDArtista.idArtista(conexion, concierto.getArtista());
         String insert = "INSERT INTO concierto (id_c ,id_a, fecha, lugar, precio) " +

@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class NuevaEntrada {
+public class NuevaEntradaBBDD {
     public static void nuevaEntrada(Connection conexion, Entrada entrada) {
 
         String insert = "INSERT INTO ENTRADA (ID_E, ID_C, COMPRADOR, CANTIDAD, FECHA_COMPRA) " +

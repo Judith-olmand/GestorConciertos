@@ -8,17 +8,18 @@ import java.sql.Statement;
 public class Conciertos {
     public static void listarConciertos(Connection conexion){
         try (Statement st = conexion.createStatement()){
-            String consultarConciertos = "SELECT ID_C, NOMBRE_A, FECHA, LUGAR" +
-                    " FROM CONCIERTO JOIN ARTISTA USING(ID_A)";
+            String consultarConciertos = "SELECT ID_C, NOMBRE_A, TO_CHAR(FECHA, 'DD-MM-YYYY' ), LUGAR" +
+                    " FROM CONCIERTO JOIN ARTISTA USING(ID_A) " +
+                    "ORDER BY FECHA";
             ResultSet rs = st.executeQuery(consultarConciertos);
             if(!rs.next()){
                 System.out.println("No se encontraron conciertos");
             } else {
-                System.out.printf("%-5s %-15s %-20s %-15s%n",
-                        "ID", "NOMBRE" , "FECHA", "LUGAR");
+                System.out.printf("%-5s %-18s %-23s %-15s%n",
+                        "ID", "NOMBRE ARTISTA" , "FECHA DEL CONCIERTO", "LUGAR");
                 System.out.println("-".repeat(57));
                 do {
-                    System.out.printf("%-5s %-15s %-20s %-15s%n",
+                    System.out.printf("%-5s %-18s %-23s %-15s%n",
                             rs.getInt(1) ,
                             rs.getString(2) ,
                             rs.getString(3) ,

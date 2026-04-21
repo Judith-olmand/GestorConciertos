@@ -1,6 +1,7 @@
 package org.example.Elimina;
 
-import org.example.Busquedas.EntradasConcierto;
+import org.example.Busquedas.BuscarIDConcierto;
+import org.example.Busquedas.BuscarEntradasConcierto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,10 +14,10 @@ public class Concierto {
         int idConcierto = sc.nextInt();
         sc.nextLine();
 
-        boolean existeIdConcierto = org.example.Busquedas.Concierto.idConcierto(conexion, idConcierto);
+        boolean existeIdConcierto = BuscarIDConcierto.idConcierto(conexion, idConcierto);
 
         if (existeIdConcierto){
-            boolean existenEntradasVendidas = EntradasConcierto.entradasIDConcierto(conexion, idConcierto); //comprobar si existen entradas vendidas
+            boolean existenEntradasVendidas = BuscarEntradasConcierto.entradasIDConcierto(conexion, idConcierto); //comprobar si existen entradas vendidas
             if (existenEntradasVendidas){
                 System.out.println("Existen entradas de ese concierto. No se puede eliminar");
             } else {

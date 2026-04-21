@@ -5,9 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class NombreArtista {
+public class BuscarNombreArtista {
     public static boolean nombreArtista(Connection conexion, String nombre) {
-        String consultaNombreArtista = "SELECT NOMBRE_A FROM ARTISTA WHERE NOMBRE_A LIKE ?";
+        String consultaNombreArtista = "SELECT NOMBRE_A FROM ARTISTA WHERE UPPER(NOMBRE_A) = UPPER(?)";
 
         try (PreparedStatement ps = conexion.prepareStatement(consultaNombreArtista)){
             ps.setString(1, nombre);

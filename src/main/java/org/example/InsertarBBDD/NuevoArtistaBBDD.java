@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class NuevoArtista {
+public class NuevoArtistaBBDD {
     public static void nuevoArtista(Connection conexion, Artista artista) {
         String insert = "INSERT INTO artista (id_a ,nombre_a, genero_musical, pais_origen) " +
                 "VALUES (?, ?, ?, ?)";

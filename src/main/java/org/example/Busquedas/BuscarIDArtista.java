@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Artista {
+public class BuscarIDArtista {
     public static boolean idArtista(Connection conexion, int idArtista) {
         String consultaIdArtista = "SELECT ID_A FROM ARTISTA WHERE ID_A = ?";
 

@@ -1,7 +1,8 @@
 package org.example.CrearNew;
 
-import org.example.Busquedas.NombreArtista;
+import org.example.Busquedas.BuscarNombreArtista;
 import org.example.Extraer.IDConciertoDisponible;
+import org.example.InsertarBBDD.NuevoConciertoBBDD;
 import org.example.Objetos.Concierto;
 
 import java.sql.Connection;
@@ -14,10 +15,10 @@ public class NuevoConcierto {
     public static void nuevoConcierto (Connection conexion, Scanner sc) {
         double precio;
 
-        System.out.println("Indica el nombre del Artista del concierto");
+        System.out.println("Indica el nombre del artista del concierto");
         String nombre = sc.nextLine();
         // Llama a buscar el nombre del artista en la base de datos
-        boolean existeArtista = NombreArtista.nombreArtista(conexion, nombre);
+        boolean existeArtista = BuscarNombreArtista.nombreArtista(conexion, nombre);
         if (existeArtista) {
             System.out.println("Indica la fecha del concierto (YYYY-MM-DD)");
             String fecha = sc.nextLine();
@@ -54,8 +55,8 @@ public class NuevoConcierto {
             int idConcierto = IDConciertoDisponible.idConciertoDisponible(conexion) + 1;
 
             Concierto nuevoConcierto = new Concierto(idConcierto, nombre, fechasql, lugar, precio);
-
-            org.example.InsertarBBDD.NuevoConcierto.nuevoConcierto(conexion, nuevoConcierto);
+            NuevoConciertoBBDD.nuevoConcierto(conexion, nuevoConcierto);
+            System.out.println("Concierto añadido con éxito");
         } else {
             System.out.println("No existe el artista en la base de datos.");
         }

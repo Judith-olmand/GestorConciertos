@@ -8,11 +8,12 @@ import java.sql.Statement;
 public class Artistas {
     public static void listarArtistas(Connection conexion){
         try (Statement st = conexion.createStatement()){
-            String consultarArtistas = "SELECT ID_A, NOMBRE_A, GENERO_MUSICAL, PAIS_ORIGEN" +
-                    " FROM ARTISTA";
+            String consultarArtistas = "SELECT ID_A, NOMBRE_A, GENERO_MUSICAL, PAIS_ORIGEN " +
+                    "FROM ARTISTA " +
+                    "ORDER BY ID_A";
             ResultSet rs = st.executeQuery(consultarArtistas);
             if(!rs.next()){
-                System.out.println("No se encontraron conciertos");
+                System.out.println("No se encontraron artistas");
             } else {
                 System.out.printf("%-5s %-15s %-20s %-15s%n", "ID", "NOMBRE" , "GÉNERO MUSICAL", "PAIS DE ORIGEN");
                 System.out.println("-".repeat(57));

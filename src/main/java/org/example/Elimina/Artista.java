@@ -26,10 +26,10 @@ public class Artista {
 
 
 
-        boolean existeIdArtista = org.example.Busquedas.Artista.idArtista(conexion, idArtista);
+        boolean existeIdArtista = BuscarIDArtista.idArtista(conexion, idArtista);
 
         if (existeIdArtista){
-            boolean existenConciertos = ConciertosArtista.conciertosIdArtista(conexion, idArtista);
+            boolean existenConciertos = BuscarConciertosArtista.conciertosIdArtista(conexion, idArtista);
             if (existenConciertos){
                 System.out.println("Existen conciertos del artista. No se puede eliminar");
             } else {
